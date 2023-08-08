@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class = 'text-danger'>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    
+    <div style = 'padding: 250px'>
+    <form action="" method = 'POST'>
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td><input type="submit" value = 'Saqlash'></td>
+            </tr>
+        </table>
+        
+    </form>
+    </div>
+{% endblock %}

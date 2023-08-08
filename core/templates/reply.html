@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style = 'padding: 250px'>
+    <form action="" method = 'POST'>
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><label>Answer:</label></td>
+                <td><textarea name="answer" id="" cols="48" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value = 'Saqlash'></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+{% endblock %}

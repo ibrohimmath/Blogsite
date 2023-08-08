@@ -1,0 +1,42 @@
+{% if comment.children %}
+    {% for reply in comment.children %}
+    <div class="tm-comment-reply tm-mb-45">
+        <hr>
+        <div class="tm-comment">
+            <figure class="tm-comment-figure">
+                <!-- <img src="img/comment-2.jpg" alt="Image" class="mb-2 rounded-circle img-thumbnail"> -->
+                <figcaption class="tm-color-primary text-center">{{ reply }}</figcaption>    
+            </figure>
+            <p>{{ reply.answer }}</p>
+        </div>                         
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'reply' reply.id %}" class = 'tm-color-primary'>REPLY</a>
+            <span class="d-block text-right tm-color-primary">{{ reply.updated_at }}</span>
+        </div>       
+    </div> 
+    {% if reply.children %}
+        {% include 'comment.html' with comment=reply %}
+    {% endif %}
+    {% endfor %}                                               
+{% endif %}
+
+
+
+
+
+<!-- <form action="" class="mb-5 tm-comment-form" method = 'POST'>
+    {% csrf_token %}
+    <h2 class="tm-color-primary tm-post-title mb-4">Your comment</h2>
+    <div class="mb-4">
+        <input class="form-control" name="name" type="text">
+    </div>
+    <div class="mb-4">
+        <input class="form-control" name="email" type="text">
+    </div>
+    <div class="mb-4">
+        <textarea class="form-control" name="answer" rows="6"></textarea>
+    </div>
+    <div class="text-right">
+        <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>                        
+    </div>                                
+</form> -->

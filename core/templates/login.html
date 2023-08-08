@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style = 'padding: 250px'>
+    <form action="" method = 'POST'>
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td><input type="submit" value = 'Kirish'></td>
+            </tr>
+        </table>
+    </form>
+    <a href="{% url 'signup' %}">Profilingiz yo'qmi?</a>
+    </div>
+{% endblock %}

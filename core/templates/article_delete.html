@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style = 'padding: 200px'>
+    <form action="" method = 'POST'>
+        {% csrf_token %}
+        <p>Rostan ham {{ article.title }} sarlavhali postni o'chirmoqchimisiz?</p>
+            <input type="submit" value = 'Ha' />
+            <a href="/" class = 'btn btn-primary'>Yo'q</a>
+    </form>
+    </div>
+{% endblock %}
